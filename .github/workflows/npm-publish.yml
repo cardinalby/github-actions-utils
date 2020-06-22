@@ -1,8 +1,8 @@
 name: npm-publish
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 jobs:
   npm-publish:
     name: npm-publish
@@ -14,6 +14,10 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 12.0.0
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
       - name: Publish if version has been updated
         uses: pascalgn/npm-publish-action@1.2.0
         with:
