@@ -63,8 +63,8 @@ function getNumberInput(inputName: string, required: boolean): number|undefined 
     throw new Error(`Input ${inputName} has invalid number value`);
 }
 
-function getStringInput(inputName: string, required: true, isSecret: boolean): string;
-function getStringInput(inputName: string, required: false, isSecret: boolean): string|undefined;
+function getStringInput(inputName: string, required: true, isSecret?: boolean): string;
+function getStringInput(inputName: string, required: false, isSecret?: boolean): string|undefined;
 function getStringInput(inputName: string, required: boolean, isSecret: boolean = false): string|undefined {
     const input = ghActions.getInput(inputName, { required });
     if (!required && input === '') {
