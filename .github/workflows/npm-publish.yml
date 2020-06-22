@@ -10,12 +10,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-      - name: Set up Node.js
-        uses: actions/setup-node@master
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - name: Install dependencies
-        run: npm install
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
       - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
