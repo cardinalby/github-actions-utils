@@ -1,6 +1,6 @@
 {
   "name": "github-actions-utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utils for JS/TS github action",
   "main": "dist",
   "keywords": [
@@ -35,5 +35,8 @@
     "prepare": "npm run build",
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
+  },
+  "bin": {
+    "checkIsUnchanged": "./dist/bin/checkIsUnchanged.js"
   }
 }
